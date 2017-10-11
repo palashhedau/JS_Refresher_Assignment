@@ -1,0 +1,667 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="ISO-8859-1">
+<title>Insert title here</title>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+
+<link href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
+
+<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.4/angular.min.js"></script>
+<script type="text/javascript" src="../JS/Form.js"></script>
+
+
+<style type="text/css" >
+  
+  .middle {
+  
+  text-align: center;
+}
+  
+  .well{
+    margin-bottom : 0px ;
+  }
+  
+  .right-bg{
+  	background-color : #fafafa; 
+  }
+  
+  .result-container{
+  min-height = 550px ; 
+  overflow : auto ; 
+  border : 1px;
+  margin-top:15px ; 
+  }
+  
+  
+</style>
+
+
+</head>
+<body style="background-color: gray;">
+
+ <!-- INHERITENCE -->
+		<div class="row ">
+			<div class="col-sm-12 ">
+				<div  class="col-sm-2" style="margin: 0.3cm;"></div>
+				<div class="col-sm-5 input-group"><h2><b>INHERITENCE</b></h2></div>
+				<div  class="col-sm-5">
+				</div>
+			</div>
+		</div>
+
+		<div class="row ">
+			<div class="col-sm-12 ">
+				<div  class="col-sm-3"  style="margin: 0.3cm;">
+				</div>
+				<div class="col-sm-2 input-group">
+					<select class="form-control" id="namesOfIndividual" name="">
+						  <option value="Lily">Lily</option>
+						  <option value="Lucy">Lucy</option>
+						   <option value="Patricia">Patricia</option>
+						  <option value="Kate">Kate</option>
+						   <option value="Max">Max</option>
+						  <option value="Bruno">Bruno</option>
+						   <option value="Puppy">Puppy</option>
+						  <option value="John">John</option>
+						  <option value="Annie">Annie</option>
+						  <option value="Dwayne">Dwayne</option>
+						 
+					</select>
+					<span id='getDetailsOfHeritence' style="color: white"></span>
+				</div>
+			  	<div  class="col-sm-5 input-group">
+			  	</div>
+			</div>
+		</div>  	
+
+
+		<div class="row ">
+			<div class="col-sm-12 ">
+				<div  class="col-sm-3"  style="margin: 0.3cm;">
+				</div>
+				<div class="col-sm-2 input-group">
+					<button input-group" onclick="inheritencee()" class="btn-primary">Submit</button>
+				</div>
+			  	<div  class="col-sm-5">
+			  	</div>
+			</div>
+		</div>  	
+
+
+<!-- REGULAR EXPRESSION -->
+
+	<div class="row ">
+		<div class="col-sm-12 ">
+			<div  class="col-sm-2" style="margin: 0.3cm;"></div>
+			<div class="col-sm-5 input-group"><h2><b>REGULAR EXPRESSION</b></h2></div>
+			<div  class="col-sm-5"></div>
+		</div>
+	</div>
+	
+	
+		<div class="row ">
+			<div class="col-sm-12 ">
+				<div  class="col-sm-3"  style="margin: 0.3cm;">
+					<span><b>Name</b></span>
+				</div>
+				<div class="col-sm-2 input-group">
+					<input onkeydown="validateName()"  id="nameR" type="text" class="form-control" name="nameR" placeholder="Name.." aria-describedby="basic-addon2"/>
+				</div>
+			  	<div  class="col-sm-5 input-group"><span style="color: red" id='nameSpan'></span>
+			  	</div>
+			</div>
+		</div>  	
+		
+		
+		<div class="row ">
+			<div class="col-sm-12 ">
+				<div  class="col-sm-3"  style="margin: 0.3cm;">
+					<span><b>Email</b></span>
+				</div>
+				<div class="col-sm-2 input-group">
+					<input onkeydown="validateEmail()"  id="emailR" type="text" class="form-control" name="nameE" placeholder="Email..." aria-describedby="basic-addon2"/>
+				</div>
+			  	<div  class="col-sm-5 input-group"> <span style="color: red" id='emailSpan'></span>
+			  	</div>
+			</div>
+		</div>  	
+		
+		<div class="row ">
+			<div class="col-sm-12 ">
+				<div  class="col-sm-3"  style="margin: 0.3cm;">
+					<span><b>Address</b></span>
+				</div>
+				<div class="col-sm-2 input-group">
+					<input onkeydown="validateAddress()"  id="addressR" type="text" class="form-control"  placeholder="Address..." aria-describedby="basic-addon2"/>
+				</div>
+			  	<div  class="col-sm-5 input-group"><span style="color: red" id='addressSpan'></span>
+			  	</div>
+			</div>
+		</div>
+		
+		<div class="row ">
+			<div class="col-sm-12 ">
+				<div  class="col-sm-3"  style="margin: 0.3cm;">
+					<span><b>Mobile #</b></span>
+				</div>
+				<div class="col-sm-2 input-group">
+					<input onkeydown="validatePhone()" id="mobileR" type="text" class="form-control"  placeholder="Mobile..." aria-describedby="basic-addon2"/>
+				</div>
+			  	<div  class="col-sm-5 input-group"><span style="color: red" id='phoneSpan'></span>
+			  	</div>
+			</div>
+		</div>
+		
+		
+		<div class="row ">
+			<div class="col-sm-12 ">
+				<div  class="col-sm-3"  style="margin: 0.3cm;">
+				</div>
+				<div class="col-sm-2 input-group">
+					<button input-group" onclick="regularExpressionFunction()" class="btn-primary">Submit</button>
+				</div>
+			  	<div  class="col-sm-5">
+			  	</div>
+			</div>
+		</div>  	
+
+
+
+<!-- STRICT
+ -->
+<button onclick="strcitFunction()">Strcit</button>
+
+
+<!-- JSON -->
+
+	<div class="row ">
+		<div class="col-sm-12 ">
+			<div  class="col-sm-4" style="margin: 0.3cm;"></div>
+			<div class="col-sm-5 input-group"><h2><b >JSON OBJECT</b></h2></div>
+			<div  class="col-sm-5"></div>
+		</div>
+	</div>
+
+		<div class="row ">
+			<div class="col-sm-12 ">
+				<div  class="col-sm-4"  style="margin: 0.3cm;">
+				</div>
+				<div class="col-sm-2 input-group">
+					<button input-group" onclick="jsonFunction()" class="btn-primary">Check Employee Data</button>
+				</div>
+			  	<div  class="col-sm-5">
+			  	</div>
+			</div>
+		</div>  	
+		
+		
+		<table class="table table-bordered" >
+		    <thead>
+				<th>ID</th>
+				<th>Name</th>
+				<th>Email</th>
+				<th>Gender</th>
+				<th>DOB</th>
+				<th>Salary</th>
+			</thead>
+		    <tbody id='employeeData'>
+		      
+		    </tbody>
+ 		 </table>
+
+
+<!-- TYPE CONVERSION
+ -->
+
+
+	<div class="row ">
+		<div class="col-sm-12 ">
+			<div  class="col-sm-2" style="margin: 0.3cm;"></div>
+			<div class="col-sm-5 input-group"><h2><b >TYPE CONVERSION</b></h2></div>
+			<div  class="col-sm-5"></div>
+		</div>
+	</div>
+	
+	
+		<div class="row ">
+			<div class="col-sm-12 ">
+				<div  class="col-sm-3"  style="margin: 0.3cm;">
+					<span><b>Industry Name</b></span>
+				</div>
+				<div class="col-sm-2 input-group">
+					<input  id="nameTC" type="text" class="form-control" name="nameE" placeholder="Name.." aria-describedby="basic-addon2"/>
+				</div>
+			  	<div  class="col-sm-5 input-group">
+			  	</div>
+			</div>
+		</div>  	
+		
+		
+		<div class="row ">
+			<div class="col-sm-12 ">
+				<div  class="col-sm-3"  style="margin: 0.3cm;">
+					<span><b>Year of Establishment</b></span>
+				</div>
+				<div class="col-sm-2 input-group">
+					<input  id="ageTC" type="text" class="form-control" name="nameE" placeholder="Year of Establishment..." aria-describedby="basic-addon2"/>
+				</div>
+			  	<div  class="col-sm-5 input-group"> <span id = 'ageId'></span>
+			  	</div>
+			</div>
+		</div>  	
+		
+		<div class="row ">
+			<div class="col-sm-12 ">
+				<div  class="col-sm-3"  style="margin: 0.3cm;">
+					<span><b># of Employee</b></span>
+				</div>
+				<div class="col-sm-2 input-group">
+					<input  id="salTC" type="text" class="form-control"  placeholder="Count.." aria-describedby="basic-addon2"/>
+				</div>
+			  	<div  class="col-sm-5 input-group"><span id = 'countId'></span>
+			  	</div>
+			</div>
+		</div>
+		
+		<div class="row ">
+			<div class="col-sm-12 ">
+				<div  class="col-sm-3"  style="margin: 0.3cm;">
+					<span><b>Annual Turnover</b></span>
+				</div>
+				<div class="col-sm-2 input-group">
+					<input  id="turnoverTC" type="text" class="form-control"  placeholder="Turnover Amount..." aria-describedby="basic-addon2"/>
+				</div>
+			  	<div  class="col-sm-5 input-group"><span id = 'turnOverId'></span>
+			  	</div>
+			</div>
+		</div>
+		
+		
+		<div class="row ">
+			<div class="col-sm-12 ">
+				<div  class="col-sm-3"  style="margin: 0.3cm;">
+				</div>
+				<div class="col-sm-2 input-group">
+					<button input-group" onclick="typeConversionFunction()" class="btn-primary">Check Input</button>
+				</div>
+			  	<div  class="col-sm-5"><span id='typeCId'></span>
+			  	</div>
+			</div>
+		</div>  	
+		
+<hr>
+
+
+
+<!-- 
+ERRORS
+ -->
+
+
+	<div class="row ">
+		<div class="col-sm-12 ">
+			<div  class="col-sm-2" style="margin: 0.3cm;"></div>
+			<div class="col-sm-5 input-group"><h2><b >ERRORS</b></h2></div>
+			<div  class="col-sm-5"></div>
+		</div>
+	</div>
+	
+	
+		<div class="row ">
+			<div class="col-sm-12 ">
+				<div  class="col-sm-2"  style="margin: 0.3cm;">
+				<span> Select Course</span> </div>
+				<div class="col-sm-2 input-group">
+					<select class="form-control" id="courseId" name="course">
+						  <option value="202-1">CMPE - 202-1</option>
+						  <option value="202-2">CMPE - 202-2</option>
+						  <option value="272">CMPE - 272</option>
+						  <option value="273">CMPE - 273</option>
+						  <option value="281">CMPE - 281</option>
+					</select>
+				</div>
+			  	<div  class="col-sm-5 input-group""><span id='courseMessage' ></span>
+			  	</div>
+			</div>
+		</div>  	
+		
+		<div class="row ">
+			<div class="col-sm-12 ">
+				<div  class="col-sm-2"  style="margin: 0.3cm;">
+				</div>
+				<div class="col-sm-2 btn-group">
+					<button input-group" onclick="errorFunction()" class="btn-primary">Add Course</button>
+				</div>
+			  	<div  class="col-sm-5">
+			  	</div>
+			</div>
+		</div>  	
+		
+<hr>
+<!-- 
+CONDITIONS -->
+
+	<div class="row ">
+		<div class="col-sm-12 ">
+			<div  class="col-sm-2" style="margin: 0.3cm;"></div>
+			<div class="col-sm-5 input-group"><h2><b id="topicEvents">CONDITIONS</b></h2></div>
+			<div  class="col-sm-5"></div>
+		</div>
+	</div>
+	
+	
+		<div class="row ">
+			<div class="col-sm-12 ">
+				<div  class="col-sm-2"  style="margin: 0.3cm;">
+					<span id='secondsContainer' style="color:white"></span>
+				</div>
+				<div class="col-sm-2 input-group">
+					<img id='imageId' alt="" src="../Images/day.jpg" height="300" width="300">
+					
+		  		</div>
+			  
+			  	</div>
+			</div>
+		</div>  	
+		
+		<div class="row ">
+			<div class="col-sm-12 ">
+				<div  class="col-sm-2"  style="margin: 0.3cm;">
+				</div>
+				<div class="col-sm-2 input-group">
+					<button onclick="infiniteLoop()" class="btn-primary">Start Images App</button>
+				</div>
+			  	<div  class="col-sm-5">
+			  	</div>
+			</div>
+		</div>  	
+		
+		
+
+<!-- 
+EVENTS -->
+
+
+
+<div>
+
+	
+	<div class="row ">
+		<div class="col-sm-12 ">
+			<div  class="col-sm-2" style="margin: 0.3cm;"></div>
+			<div class="col-sm-5 input-group"><h2><b id="topicEvents">EVENTS</b></h2></div>
+			<div  class="col-sm-5"></div>
+		</div>
+	</div>
+	
+	
+	<div class="row ">
+		<div class="col-sm-12 ">
+			<div  class="col-sm-2"  style="margin: 0.3cm;">
+				<span class="label label-default">Name : </span>
+			</div>
+			<div class="col-sm-2 input-group">
+				<input onkeydown="keyPressNameFunction()" id="nameE" type="text" class="form-control" name="nameE" placeholder="Name.." aria-describedby="basic-addon2"/>
+				
+	  		</div>
+		  	<div  class="col-sm-5"><span id='nameErrorMessage'></span>
+		  	</div>
+		</div>
+		
+		<div class="col-sm-12 ">
+				<div  class="col-sm-2"  style="margin: 0.3cm;">
+					<span class="label label-default">Email :</span>
+				</div>
+				<div class="col-sm-2 input-group">
+					<input onkeydown="keyPressEmailFunction()" id="emailE" type="text" class="form-control" name="emailE" placeholder="Email.." aria-describedby="basic-addon2"/>
+		  			
+		  		</div>
+		  		<div class="col-sm-5 input-group" ><span id='emailErrorMessage'></span>
+		  		</div>
+		 </div>
+		 
+		 <div class="col-sm-12 ">
+				<div  class="col-sm-2"  style="margin: 0.3cm;">
+				</div>
+				<div class="col-sm-2 ">
+					<button onclick="eventFunction()" class="btn-primary">Submit</button>
+		  		</div>
+		  		<div class="col-sm-5"  style="color: red;">
+		  		</div>
+		 </div>
+		
+		</div>  		
+		  	
+</div>
+
+<hr>
+
+
+
+<!-- 
+ FUNCTIONS -->
+
+<div>
+
+	
+	<div class="row ">
+		<div class="col-sm-12 ">
+			<div  class="col-sm-2" style="margin: 0.3cm;"></div>
+			<div class="col-sm-5 input-group"><h2><b id="topicFunction">FUNCTIONS</b></h2></div>
+			<div  class="col-sm-5"></div>
+		</div>
+	</div>
+	
+	
+	<div class="row ">
+		<div class="col-sm-12 ">
+			<div  class="col-sm-2" style="margin: 0.3cm;"><span class="label label-default">Interest Type : </span></div>
+			<div class="col-sm-8 input-group">
+					<input type="radio" name="interestType" value="SimpleInterest"> Simple Interest<br>
+  					<input type="radio" name="interestType" value="CompoundInterest"> Compound Interest<br>
+			</div>
+			<div  class="col-sm-5"></div>
+		</div>
+			
+		<div class="col-sm-12 ">
+			<div  class="col-sm-2"  style="margin: 0.3cm;">
+				<span class="label label-default">Loan Amount : </span>
+			</div>
+			<div class="col-sm-2 input-group">
+				<span class="input-group-addon" id="basic-addon2">$</span>
+				<input id="loan" type="text" class="form-control" name="email" placeholder="Loan Amount" aria-describedby="basic-addon2"/>
+	  		</div>
+		  	<div  class="col-sm-5">
+		  	</div>
+		</div>
+		
+		<div class="col-sm-12 ">
+				<div  class="col-sm-2"  style="margin: 0.3cm;">
+					<span class="label label-default">Tenure : </span>
+				</div>
+				<div class="col-sm-5 input-group">
+					<select id="tenureId" name="tenure">
+						  <option value="2">2</option>
+						  <option value="5">5</option>
+						  <option value="10">10</option>
+						  <option value="20">20</option>
+					</select>
+		  		</div>
+		  		<div class="col-sm-5">
+		  		</div>
+		 </div>
+		 
+		 <div class="col-sm-12 ">
+				<div  class="col-sm-2"  style="margin: 0.3cm;">
+				</div>
+				<div class="col-sm-5 input-group">
+					<button onclick="calculateInterest()">Calculate Interest</button>
+		  		</div>
+		  		<div class="col-sm-5"  style="color: red;">
+		  		</div>
+		 </div>
+		 
+		 <div class="col-sm-12 ">
+				<div  class="col-sm-2"  style="margin: 0.3cm;">
+				</div>
+				<div class="col-sm-5 input-group" style="color: red;"><span id='interestAmount'></span>
+		  		</div>
+		  		<div class="col-sm-5"  >
+		  		</div>
+		 </div>
+		 
+		</div>  		
+		  	
+</div>
+
+<hr>
+<!--  OBJECTS -->
+
+	
+<div>
+	
+	<div class="row">
+	<div class="col-sm-12 ">
+	<div  class="col-sm-2" style="margin: 0.3cm;"></div>
+	<div class="col-sm-5 input-group"><h2><b id="topicVariable">OBJECTS</b></h2></div>
+	<div  class="col-sm-5"></div>
+	</div>
+	</div>
+	
+	
+	<div class="row ">
+	<div class="col-sm-12 ">
+	<div  class="col-sm-2 pagination-centered" style="margin: 0.3cm;"><span class="label label-default">Select Person : </span></div>
+	<div class="col-sm-8 pagination-centered">
+			  <select  oninput="objectFunction()"  id="dropDownFootballers" name="cars">
+			   <option value="Select">Select</option>
+			  <option value="Messi">Messi</option>
+			  <option value="Coutinho">Coutinho</option>
+			  <option value="Neymar">Neymar</option>
+			  <option value="Xavi">Xavi</option>
+       	      </select>
+		</div>
+	<div  class="col-sm-3"></div>
+	</div>
+	</div>
+	
+	<div class="col-sm-12 ">
+		<div  class="col-sm-2"><b>Details of a Player</b></div>
+			<div class="col-sm-3"><span id="detailsOfaPlayer"></span>
+			</div>
+		<div class="col-sm-7"></div>
+	</div>
+	
+	<hr>
+	
+
+</div>
+		
+
+<!-- FORM -->
+
+
+	<div class="row ">
+		<div class="col-sm-12 ">
+			<div  class="col-sm-2" style="margin: 0.3cm;"></div>
+			<div class="col-sm-5 input-group"><h2><b id="topicEvents">ARRAYS</b></h2></div>
+			<div  class="col-sm-5"></div>
+		</div>
+	</div>
+	
+	<div class="row">
+	<div class="col-sm-12" style="margin: 0.5cm;"><h3 style="color: blue;">Please enter below details for tracking order</h3></div>
+	</div>
+	<br><br>
+
+
+
+
+
+	<div class="row ">
+	<div class="col-sm-12 ">
+	<div  class="col-sm-2" style="margin: 0.3cm;"><span class="label label-default">Tracking# : </span></div>
+	<div class="col-sm-5 input-group"><input id="trackingNo" type="text" class="form-control" name="username" placeholder="Tracking No..." aria-describedby="basic-addon2"/></input></div>
+	<div  class="col-sm-5"></div>
+	</div>
+	
+	<div class="col-sm-12 ">
+	<div  class="col-sm-2"  style="margin: 0.3cm;"><span class="label label-default">Email : </span></div>
+	<div class="col-sm-5 input-group"><input id="emailID" type="text" class="form-control" name="email" placeholder="Email ID" aria-describedby="basic-addon2"/>
+  	<span class="input-group-addon" id="basic-addon2">@something.com</span></div>
+  	<div  class="col-sm-5"></div>
+	</div>
+	</div>
+
+	<div class="col-sm-12 ">
+	<div  class="col-sm-2"></div>
+	<div class="col-sm-10"><button class="btn btn-info"  onclick="Display()">Submit</button></div>
+	</div>
+	
+	<br>
+	
+	<div class="col-sm-12 " style="margin: 2%;">
+	<div  class="col-sm-2"  style="margin: 0.3cm;"></div>
+	<div class="col-sm-5 "><ul id='trackingDetails'></ul></div>
+  	<div  class="col-sm-5"></div>
+	</div>
+	
+
+	
+
+<hr>
+<hr>
+<hr>
+<hr>
+<hr>
+
+<button onclick="objectFunction()">testObject</button>
+
+
+<button onclick="inheritenceFunction()">testInheritence</button>
+<hr>
+
+<!--  VARIABLLES -->
+
+	
+<div>
+	
+	<div class="row ">
+	<div class="col-sm-12 ">
+	<div  class="col-sm-2" style="margin: 0.3cm;"></div>
+	<div class="col-sm-5 input-group"><h2><b id="topicVariable">VARIABLES</b></h2></div>
+	<div  class="col-sm-5"></div>
+	</div>
+	</div>
+	
+	
+	<div class="row ">
+	<div class="col-sm-12 ">
+	<div  class="col-sm-2" style="margin: 0.3cm;"><span class="label label-default">Enter Number# : </span></div>
+	<div class="col-sm-5 input-group"><input id="variableId" type="text" class="form-control" name="variable" placeholder="Enter No..." aria-describedby="basic-addon2"/></input></div>
+	<div  class="col-sm-5"></div>
+	</div>
+	</div>
+	
+	<div class="col-sm-12 ">
+	<div  class="col-sm-2"></div>
+	<div class="col-sm-3"><button class="btn btn-info"  onclick="variableFunctionTemprature()">Temp- Farenheit to Degree</button></div>
+	<div class="col-sm-7"><button class="btn btn-info"  onclick="variableFunctionCurrency()">Currency Convert</button></div>
+	</div>
+	
+	<div class="col-sm-12 ">
+	<div  class="col-sm-2"></div>
+	<div class="col-sm-3"><span id="variableResult"></span></div>
+	<div class="col-sm-7"></div>
+	</div>
+	
+
+</div>
+		
+
+	
+
+</body>
+</html>

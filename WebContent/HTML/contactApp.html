@@ -1,0 +1,160 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title></title>
+	<script src="../JS/contactApp.js"></script>
+	<link rel="stylesheet" href="../CSS/contact.css">
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+</head>
+<body>	
+	<div class="container-fluid paddingTB15">
+	  <div class="btn-container col-sm-12">
+		  <div class="btn-group">
+		  	 <button id="myBtn" type="button" class="btn btn-primary" onclick="openModal();">Add</button>
+		  </div>
+		  <div class="btn-group">
+	   		 <button type="button" class="btn btn-danger" onclick="deleteUser();">Delete</button>
+		  </div>		
+	  </div>
+	  <div class="row content">
+	    <div class="col-sm-3 sidenav">
+	      <div class="col-sm-12 input-group">
+	        <input type="text" class="form-control" id="searchValue" oninput="onContactChange(event);" placeholder="Search Contact..">
+	        <span class="input-group-btn">
+	          <button class="btn btn-default" type="button">
+	            <span class="glyphicon glyphicon-search"></span>
+	          </button>
+	        </span>
+	      </div>
+	      <div class="col-sm-12 result-container sidenav white-bg paddingLR0">
+	      		<ul class="col-sm-12 list-group paddingR0 ul-elements" id="contactList">
+				</ul>
+				<div class="col-sm-12 txt-centern visibilty-hidden"  id="nodata">
+					No Contact Found...
+				</div>
+	      </div>
+	    </div>
+	    <div class="right-container col-sm-9 paddingL0">
+	    	<div class="col-sm-12 full-border paddingLR0">
+	    		<div class="col-sm-12 right-bg border-bottom paddingLR0 right-header">
+		    		<div class="col-sm-1 right-image-container">
+		    			<img id="headerImg" class="img-circle" alt="No Image" width="50" height="50">
+		    		</div>
+		    		<div class="col-sm-11">
+		    			<h3 id="mainHeading"></h3>
+		    		</div>
+	    		</div>
+	    		<div class="col-sm-12 data-container data-bg">
+	    			<div class="form-group">
+					    <label for="email">Email:</label>
+					    <input type="email" class="form-control input-box email" id="email" readonly="true">
+					</div>
+					<div class="form-group">
+					    <label for="mobile">Mobile:</label>
+					    <input type="tel" maxlength="10" class="form-control input-box" id="phone" readonly="true">
+					</div>
+					<div class="form-group">
+					    <label for="username">Username:</label>
+					    <input type="text" class="form-control input-box" id="username" readonly="true">
+					</div>
+					<div class="form-group">
+					    <label for="address">Address:</label>
+					    <input type="text" class="form-control input-box" id="address" readonly="true">
+					</div>
+					<div class="form-group">
+					    <label for="alternate">Altername Number:</label>
+					    <input type="tel" class="form-control input-box" id="alternate" readonly="true">
+					</div>
+					<div class="form-group">
+					    <label for="dob">Other(Date Of Birth):</label>
+					    <input type="date" class="form-control input-box" id="dob" readonly="true">
+					</div>
+	    		</div>
+	    	</div>
+	    </div>
+	  </div>
+	  <div id="myModal" class="modal">
+		  <div class="modal-content">  	
+		  		<div class="modal-header">
+				    <span class="close" onclick="closeBtn();">&times;</span>
+				    <h2>Add Contact</h2>
+				</div>
+				<div class="modal-body" id="modalBody">
+					<div class="col-sm-12 txt-center height30">
+						<span class="red-color" id="error-msg"></span>
+					</div>
+					<div class="col-sm-3">
+						<div>
+							<input type="file" class="upload-file" onchange="previewFile()"><br>
+							<img src="" class="img-circle" id="uploadImg" height="200" width="200" alt="Image preview...">
+						</div>
+					</div>
+					<div class="col-sm-9 paddingLR0">
+				    	<div class="col-sm-12 data-container data-bg">
+				    		<div class="col-sm-12 paddingLR0">
+					    		<div class="col-sm-6 form-group paddingL0">
+								    <label for="fname">First Name (<span class="red-color">*</span>):</label>
+								    <input type="text" class="form-control input-box" id="Mfirst">
+								</div>
+								<div class="col-sm-6 form-group paddingLR0">
+								    <label for="lname">Last Name:</label>
+								    <input type="text" class="form-control input-box" id="Mlast">
+								</div>			
+				    		</div>
+				    		<div class="col-sm-12 paddingLR0">
+				    			<div class="col-sm-6 paddingL0 form-group">
+								    <label for="username">Username:</label>
+								    <input type="text" class="form-control input-box" id="Musername">
+								</div>
+				    			<div class="col-sm-6 paddingLR0 form-group">
+								    <label for="email">Email:</label>
+								    <input type="email" class="form-control input-box" id="Memail">
+								</div>
+				    		</div>
+				    		<div class="col-sm-12 paddingLR0">
+				    			<div class="col-sm-6 paddingL0 form-group">
+								    <label for="username">Mobile(<span class="red-color">*</span>):</label>
+								    <input type="tel" maxlength="10" class="form-control input-box" id="Mmobile">
+								</div>
+				    			<div class="col-sm-6 paddingLR0 form-group">
+								    <label for="phone">Phone:</label>
+								    <input type="tel" class="form-control input-box" id="Mphone">
+								</div>
+				    		</div>
+				    		<div class="col-sm-12 paddingLR0">
+								<div class="col-sm-6 paddingL0 form-group">
+								    <label for="street">Street:</label>
+								    <input type="text" class="form-control input-box" id="Mstreet">
+								</div>
+								<div class="col-sm-6 paddingLR0 form-group">
+								    <label for="city">City:</label>
+								    <input type="text" class="form-control input-box" id="Mcity" >
+								</div>
+							</div>
+							<div class="col-sm-12 paddingLR0">
+								<div class="col-sm-6 paddingL0 form-group">
+								    <label for="state">State:</label>
+								    <input type="text" class="form-control input-box" id="Mstate">
+								</div>
+								<div class="col-sm-6 paddingLR0 form-group">
+								    <label for="postcode">Postcode:</label>
+								    <input type="tel" maxlength="6" class="form-control input-box" id="Mpostcode" >
+								</div>
+							</div>
+							<div class="col-sm-12 paddingLR0">
+								<div class="col-sm-3 paddingL0 form-group">
+								    <label for="dob">Other(Date of Birth):</label>
+								    <input type="date" class="form-control input-box" id="Mdob">
+								</div>
+							</div>
+			    		</div>
+					</div>
+			  	</div>
+			  	<div class="modal-footer">
+			    	 <button type="button" class="btn btn-primary" onclick="addContact();">Add</button>
+			  	</div>
+		  </div>
+	  </div>
+	</div>
+</body>
+</html>

@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="ISO-8859-1">
+<title>Insert title here</title>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+
+<link href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
+
+<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.4/angular.min.js"></script>
+<script type="text/javascript" src="../JS/Form.js"></script>
+
+
+<style type="text/css" >
+  
+  .middle {
+  
+  text-align: center;
+}
+  
+  .well{
+    margin-bottom : 0px ;
+  }
+  
+  .right-bg{
+  	background-color : #fafafa; 
+  }
+  
+  .result-container{
+  min-height = 550px ; 
+  overflow : auto ; 
+  border : 1px;
+  margin-top:15px ; 
+  }
+  
+  
+</style>
+
+
+</head>
+<body style="background-color: gray;">
+
+
+	<div class="row ">
+			<div class="col-sm-12 ">
+				<div  class="col-sm-2" style="margin: 0.3cm;"></div>
+				<div class="col-sm-5 input-group"><h2><b>INHERITENCE</b></h2></div>
+				<div  class="col-sm-5">
+				</div>
+			</div>
+		</div>
+
+		<div class="row ">
+			<div class="col-sm-12 ">
+				<div  class="col-sm-3"  style="margin: 0.3cm;">
+				</div>
+				<div class="col-sm-2 input-group">
+					<select class="form-control" id="namesOfIndividual" name="">
+						  <option value="Lily">Lily</option>
+						  <option value="Lucy">Lucy</option>
+						   <option value="Patricia">Patricia</option>
+						  <option value="Kate">Kate</option>
+						   <option value="Max">Max</option>
+						  <option value="Bruno">Bruno</option>
+						   <option value="Puppy">Puppy</option>
+						  <option value="John">John</option>
+						  <option value="Annie">Annie</option>
+						  <option value="Dwayne">Dwayne</option>
+						 
+					</select>
+					<span id='getDetailsOfHeritence' style="color: white"></span>
+				</div>
+			  	<div  class="col-sm-5 input-group">
+			  	</div>
+			</div>
+		</div>  	
+
+
+		<div class="row ">
+			<div class="col-sm-12 ">
+				<div  class="col-sm-3"  style="margin: 0.3cm;">
+				</div>
+				<div class="col-sm-2 input-group">
+					<button input-group" onclick="inheritencee()" class="btn-primary">Submit</button>
+				</div>
+			  	<div  class="col-sm-5">
+			  	</div>
+			</div>
+		</div>  	
+
+</body>
+</html>
